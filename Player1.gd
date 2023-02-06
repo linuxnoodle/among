@@ -1,10 +1,11 @@
-extends Sprite
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
+signal send_ships
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,5 +14,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	look_at(get_global_mouse_position())
-	rotation += PI / 2
+	if Input.is_action_just_pressed("ui_up"):
+		print("sent");
+		emit_signal("send_ships");
