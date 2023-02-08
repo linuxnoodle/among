@@ -21,6 +21,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Ship"]
+show_behind_parent = true
 position = Vector2( 13, 8 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )

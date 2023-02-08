@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ship2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://textures/field.jpg" type="Texture" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://textures/confetti.jpg" type="Texture" id=5]
 
 [sub_resource type="GDScript" id=2]
 script/source = "extends Node2D
@@ -27,7 +28,22 @@ margin_right = -537.0
 margin_bottom = -320.0
 scroll_active = false
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enable = true
+follow_viewport_scale = 0.5
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+rotation = 0.000111775
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 3 )
+
 [node name="Player1" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
 script = SubResource( 2 )
 
 [node name="Ship" parent="Player1" instance=ExtResource( 1 )]
@@ -51,12 +67,23 @@ position = Vector2( -157, -141 )
 [node name="Ship3" parent="Player2" instance=ExtResource( 2 )]
 position = Vector2( 141, -137 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 3.5, 3.5 )
+z_index = 1000
+texture = ExtResource( 5 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enable = true
-follow_viewport_scale = 0.5
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-texture = ExtResource( 3 )
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2"]
+anchor_left = 2.167
+anchor_top = 1.0
+anchor_right = 2.499
+anchor_bottom = 1.0
+margin_left = -1406.2
+margin_top = -423.0
+margin_right = -1132.2
+margin_bottom = -184.0
+text = "congration!!!
+you done it.
+obligatory magistra is cool
+reload the page to restart"
+scroll_active = false

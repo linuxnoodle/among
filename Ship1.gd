@@ -43,14 +43,14 @@ func _input(event):
 		currentlySelected = false;
 	
 	if event is InputEventMouseMotion:
-		positionEnd = event.position - Vector2(930, 500)
+		positionEnd = event.position - Vector2(950, 530)
 		arrow = -(positionEnd - positionStart).limit_length(100);
 		update()
 
 func _on_Ship1_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		currentlySelected = true;
-		positionStart = event.position - Vector2(930, 500)
+		positionStart = event.position - Vector2(950, 530)
 
 func _draw():
 	draw_line(positionStart - global_position,
